@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wordle Words JSON</title>
+</head>
+<body>
+  <!-- Machine-readable JSON inside a script tag -->
+  <script id="words" type="application/json">
+  ["about","above","abuse","actor","acute","admit","adopt","adult","after","again",
+   "agent","agree","ahead","alarm","album","alert","alike","alive","allow","alter",
+   "among","angel","angle","angry","animal","ankle","annual","answer","apart","apple",
+   "apply","arena","argue","arise","array","aside","asset","attack","attic","audio",
+   "audit","avoid","award","aware","badge","baker","bases","basic","basis","batch",
+   "beach","beard","beast","begin","being","belly","bench","birth","black","blame",
+   "blend","bless","blind","block","blood","blues","board","boost","booth","bound",
+   "brain","brake","brand","brave","bread","break","brick","bride","brief","bring",
+   "broad","brown","brush","buyer","cabin","cable","candy","carry","catch","cause",
+   "chain","chair","chalk","charm","chart","chase","cheap","check","chest","chief"]
+  </script>
+
+  <!-- Optional: a human-visible preview -->
+  <h1>Word list (100 words)</h1>
+  <pre id="preview"></pre>
+
+  <script>
+    // Render preview on page load (optional)
+    try {
+      const jsonText = document.getElementById('words').textContent;
+      const words = JSON.parse(jsonText);
+      document.getElementById('preview').textContent = JSON.stringify(words, null, 2);
+    } catch (e) {
+      document.getElementById('preview').textContent = 'Error loading words';
+      console.error(e);
+    }
+  </script>
+</body>
+</html>
